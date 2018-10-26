@@ -6,7 +6,7 @@
 /*   By: iyerin <iyerin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 13:31:51 by iyerin            #+#    #+#             */
-/*   Updated: 2018/10/26 16:57:54 by iyerin           ###   ########.fr       */
+/*   Updated: 2018/10/26 17:35:58 by iyerin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,10 +133,38 @@
 
 ////////////////////////////////////////////////////////////
 
-int		ft_is_link()
+int 	ft_is_room_name(char *str)
 {
-	return (1);
+	ft_strlen(str);
+	return (1);/////////////////////////////////////fix
 }
+
+int 	ft_both_parts_are_rooms_names(char *str)
+{
+	char **arr;
+
+	arr = ft_strsplit(str, '-');
+	if (!arr[0] || !arr[1])
+		return (0);
+	if (ft_is_room_name(arr[0]))
+		if (ft_is_room_name(arr[1]))
+			return (1);
+	ft_free_arr((void**)arr);
+	return (0);
+
+}
+
+int 	ft_is_link(char *str, t_vars *vars)
+{
+	if ((ft_one_dash(str)) && (ft_both_parts_are_rooms_names(str)))
+	{
+		vars->flag_rooms = 1;
+		printf("link = %s\n", str);
+		return(1);
+	}
+	return(0);
+}
+
 void	ft_find_rooms(t_vars *vars)
 {
 	printf("IN THE ROOMS\n");
@@ -148,6 +176,26 @@ void	ft_find_rooms(t_vars *vars)
 	i = 0;
 	tmp = str;
 
+	while (get_next_line(0, &str))
+	{
+		printf("tyt - %s\n", str);
+		if ((ft_is_comment_command(str, vars)) == 1)
+			;
+		else if (ft_is_room())
+		{
+			if start
+			if end
+
+			///list;
+		}
+		else if (ft_is_link())
+		{
+			check start end;
+			ft_find_links();
+		}
+		else
+			ft_error(2);
+	}
 	while (*str)
 	{
 		if (*str == ' ')
@@ -159,7 +207,7 @@ void	ft_find_rooms(t_vars *vars)
 	str = tmp;
 	arr = ft_strsplit(str, ' ');
 	if (!arr[0] || !arr[1] || !arr[2])
-		return (0);
+		ft_error(2);
 	if (ft_str_is_num(arr[1]) && ft_str_is_num(arr[2]))
 	{
 		printf("name = %s\n", arr[0]);
