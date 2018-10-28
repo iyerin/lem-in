@@ -6,7 +6,7 @@
 /*   By: iyerin <iyerin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 17:23:30 by iyerin            #+#    #+#             */
-/*   Updated: 2018/10/26 16:23:11 by iyerin           ###   ########.fr       */
+/*   Updated: 2018/10/27 15:11:54 by iyerin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static size_t	ft_word_counter(char const *s, char c)
 	size_t i;
 
 	i = 0;
-	printf("str = |%s|\n", s);
 	while (*s)
 	{
 		if (*s != c)
@@ -31,8 +30,6 @@ static size_t	ft_word_counter(char const *s, char c)
 		else
 			s++;
 	}
-
-	printf("words = %zu\n", i);//////
 	return (i);
 }
 

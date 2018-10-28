@@ -4,12 +4,12 @@ HEADER = includes/*.h
 
 LIB = libft/libft.a
 
-ORIGINAL_LIST = main.c additional.c parser.c parser2.c
+ORIGINAL_LIST = main.c additional.c parser.c parser2.c lists.c
  
 OBJ_LIST = $(ORIGINAL_LIST:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra -Iincludes
-
+#CFLAGS = -Wall -Werror -Wextra -Iincludes
+CFLAGS = -Iincludes
 CC = gcc
 
 all: $(NAME)

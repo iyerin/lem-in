@@ -5,14 +5,26 @@
 # include "../libft/includes/libft.h"
 # include <stdlib.h>
 
+typedef struct		s_node_list
+{
+	char			*name;
+	struct s_node_list	*neighbour;
+	struct s_node_list	*next;
+	int				start_end;
+	int				x;
+	int				y;
+}					t_node_list;
+
 typedef struct		s_node
 {
 	int 			number;
 	char			*name;
+
 	struct s_node	*parent;
 	int				weight;
-	struct s_node	*neighbour;
-	struct s_node	*next;
+
+	int				*neighbour;
+	int				start_end;
 }					t_node;
 
 typedef struct		s_link
@@ -21,6 +33,14 @@ typedef struct		s_link
 	int				b;
 }					t_link;
 
+
+typedef struct		s_room
+{
+	int				x;
+	int				y;
+	char			*name;
+}					t_room;
+
 typedef struct		s_vars
 {
 	t_node			*nodes;
@@ -28,16 +48,12 @@ typedef struct		s_vars
 	int				start_node;
 	int				end_node;
 	int				ants;
-	//char 			**map;
 	char 			*result;
-	int				flag_rooms;
+
 	int				flag_start;
 	int				flag_end;
-	int				rooms_count;
-	int				links_count;
-	char			**map;
-	int				i;
-	int				map_size;
+
+	t_node_list		*head;
 }					t_vars;
 
 int ft_str_is_num(char *str);

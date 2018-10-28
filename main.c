@@ -6,7 +6,7 @@
 /*   By: iyerin <iyerin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 13:30:02 by iyerin            #+#    #+#             */
-/*   Updated: 2018/10/26 16:52:43 by iyerin           ###   ########.fr       */
+/*   Updated: 2018/10/28 13:45:57 by iyerin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ int		main(void)
 	t_vars	vars;
 	//char	*str;
 
-	vars.flag_rooms = -1;
+	// ft_bzero (&vars, sizeof(t_vars));
+
 	vars.ants = -1;
-	vars.map_size = 0;
+	vars.flag_start = 0;
+	vars.flag_end = 0;
+	vars.head = 0;
+
 	vars.result = ft_strnew(0);
 	// while (get_next_line(0, &str))
 	// {
@@ -44,7 +48,7 @@ int		main(void)
 	ft_parser(&vars);
 	
 	ft_strdel(&vars.result);
-	ft_free_arr((void**)vars.map);
+
 	return (0);
 }
 
